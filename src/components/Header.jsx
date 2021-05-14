@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Bookmarks(props) {
+function Header(props) {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function Bookmarks(props) {
   );
 }
 
-export default Bookmarks;
+export default Header;
