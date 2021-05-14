@@ -9,7 +9,7 @@ import './App.css';
 import context from 'react-bootstrap/esm/AccordionContext'
 
 function App() {
-  const [user, setUser] = useState('')
+  const [user, setUser] = useState({})
 
   return (
     <div className="App">
