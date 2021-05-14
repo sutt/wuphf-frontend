@@ -6,7 +6,6 @@ import Landing from './components/Landing/Landing'
 import Homepage from './components/Homepage'
 
 import './App.css';
-import context from 'react-bootstrap/esm/AccordionContext'
 
 function App() {
   const [user, setUser] = useState({})
