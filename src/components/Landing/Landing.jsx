@@ -1,6 +1,6 @@
 import React from 'react'
-import Login from './Landing/Login'
-import SignUp from './Landing/SignUp'
+import Login from './Login'
+import SignUp from './SignUp'
 
 function Landing() {
   return (
