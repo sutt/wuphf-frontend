@@ -5,7 +5,7 @@ import { Context } from '../Context';
 function SignUp() {
   const {user, setUser, getUser} = useContext(Context)
     
-  function addUser (newUser) {
+  async function addUser (newUser) {
     const baseURL = 'http://localhost:4000/users'
     axios.post(baseURL, newUser)
   }
@@ -20,7 +20,7 @@ function SignUp() {
     console.log(newUser)
     addUser(newUser)
     setUser(newUser)
-    // Login function
+    // redirect to homepage
   }
 
   return (
