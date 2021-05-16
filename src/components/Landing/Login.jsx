@@ -3,10 +3,10 @@ import React, {useContext} from 'react';
 import { Context } from '../Context';
 
 function Login() {
-  const {user, setUser} = useContext(Context)
+  const {baseURL, user, setUser} = useContext(Context)
 
   async function getUser(username) {
-    const url = `http://localhost:4000/users/${username}`
+    const url = `${baseURL}/users/${username}`
     axios(url)
     .then(res => {
       console.log(res.data)

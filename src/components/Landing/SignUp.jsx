@@ -3,11 +3,11 @@ import React, { useContext } from 'react';
 import { Context } from '../Context';
 
 function SignUp() {
-  const {user, setUser, getUser} = useContext(Context)
+  const {baseURL, setUser} = useContext(Context)
     
   async function addUser (newUser) {
-    const baseURL = 'http://localhost:4000/users'
-    axios.post(baseURL, newUser)
+    const url = `${baseURL}/users`
+    axios.post(url, newUser)
   }
 
   function signUp(e) {
