@@ -4,10 +4,10 @@ import { Context } from '../Context';
 
 function Login() {
   const {baseURL, user, setUser} = useContext(Context)
-
+  
   async function getUser(username) {
     const url = `${baseURL}/users/${username}`
-    axios(url)
+   await axios.get(url)
     .then(res => {
       console.log(res.data)
       setUser(res.data)
@@ -20,7 +20,8 @@ function Login() {
     const username = e.target.username.value
     getUser(username)
     // redirect to homepage
-    console.log(user)
+    .then( console.log(user))
+   
   }
 
 

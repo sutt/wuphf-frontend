@@ -9,8 +9,8 @@ function Homepage(props) {
     <div>
       <Header/>
       <CreatePost />
-      {/* <Newsfeed /> */}
-      {/* <SideBar /> */}
+      <Newsfeed /> 
+      <SideBar />
     </div>
   );
 }
