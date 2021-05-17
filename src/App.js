@@ -12,20 +12,7 @@ function App() {
   const baseURL = "http://localhost:4000"
   
   const [user, setUser] = useState({})
-  const [posts, setPosts] = useState({})
-
-    //Getting all the posts
-    async function getPosts () {
-      const url = `${baseURL}/posts/`
-      await axios(url)
-      .then(res => {
-        console.log(res.data)
-        setPosts(res.data)
-      })
-      .catch(error => console.error(error))
-    }
-    // getPosts()
-    console.log(`console posts: ${posts}`)
+  const [posts, setPosts] = useState([])
 
   return (
     <div className="App">
