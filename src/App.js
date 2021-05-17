@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { Context } from './components/Context'
 import { Route, Switch } from 'react-router-dom'
@@ -12,6 +13,19 @@ function App() {
   
   const [user, setUser] = useState({})
   const [posts, setPosts] = useState({})
+
+    //Getting all the posts
+    async function getPosts () {
+      const url = `${baseURL}/posts/`
+      await axios(url)
+      .then(res => {
+        console.log(res.data)
+        setPosts(res.data)
+      })
+      .catch(error => console.error(error))
+    }
+    // getPosts()
+    console.log(`console posts: ${posts}`)
 
   return (
     <div className="App">
