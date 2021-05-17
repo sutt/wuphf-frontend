@@ -3,11 +3,11 @@ import React, { useContext } from 'react';
 import { Context } from '../Context';
 
 function SignUp() {
-  const {baseURL, setUser} = useContext(Context)
+  const {baseURL, setUser, setLoggedIn} = useContext(Context)
     
   async function addUser (newUser) {
     const url = `${baseURL}/users`
-    axios.post(url, newUser)
+    await axios.post(url, newUser)
   }
 
   function signUp(e) {
@@ -20,6 +20,7 @@ function SignUp() {
     console.log(newUser)
     addUser(newUser)
     setUser(newUser)
+    setLoggedIn(true)
     // redirect to homepage
   }
 
