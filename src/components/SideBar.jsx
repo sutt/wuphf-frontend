@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from "react";
 import { Link } from 'react-router-dom'
+import { Context } from "./Context";
 
 function SideBar() {
+  const {user} = useContext(Context)
+
   return (
     <div>
-      SideBar:
-      <Link to="/Homepage" key="NewsFeed">News Feed</Link>
-      <Link to="/Bookmarks" key="Bookmarks">Bookmarks</Link>
-      <Link to="/Profile" key="Profile">Profile</Link>
+      <Link to="/Homepage">Home</Link>
+      <Link to="/Bookmarks">Bookmarks</Link>
+      <Link to={`/profile/${user.username}`}>Profile</Link>
     </div>
   );
 }

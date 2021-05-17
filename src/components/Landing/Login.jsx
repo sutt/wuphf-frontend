@@ -13,7 +13,7 @@ function Login() {
     setUser(axiosResponse.data)
   }
   
-  async function login(e) {
+  function login(e) {
     e.preventDefault()
     const username = e.target.username.value
     fetchUserInfo(username)

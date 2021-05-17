@@ -3,22 +3,8 @@ import React, { useContext, useEffect } from 'react';
 import { Context } from './Context';
 
 function Newsfeed() {
-  const {posts, setPosts, baseURL} = useContext(Context)
+  const {posts, getPosts} = useContext(Context)
 
-  //Getting all the posts
-  async function getPosts () {
-    const url = `${baseURL}/posts/`
-    await axios.get(url)
-    .then(res => {
-      console.log(`res.data:`)
-      console.log(res.data)
-      setPosts(res.data)
-    })
-    .catch(error => {
-      console.log("axios didnt work")
-      console.log(error)
-    })
-  }
   useEffect(()=> {getPosts()}, [])
 
   console.log(`console posts: ${posts}`)

@@ -16,13 +16,31 @@ function App() {
   const [posts, setPosts] = useState([])
   const [loggedIn, setLoggedIn] = useState(false)
 
+  //Getting all the posts
+  async function getPosts () {
+    const url = `${baseURL}/posts/`
+    await axios.get(url)
+    .then(res => {
+      console.log(`res.data:`)
+      console.log(res.data)
+      setPosts(res.data)
+    })
+    .catch(error => {
+      console.log("axios didnt work")
+      console.log(error)
+    })
+  }
+
   return (
     <div className="App">
       <Switch>
-        <Context.Provider value={{baseURL, user, setUser, posts, setPosts, loggedIn, setLoggedIn}}>
+        <Context.Provider value={{baseURL, user, setUser, posts, setPosts, getPosts, loggedIn, setLoggedIn}}>
           {/* <Route redirect='/' => '/homepage' if {{loggedIn}} */}
           <Route exact path='/' component={Landing}/>
           <Route exact path='/homepage' component={Homepage}/>
+          <Route exact path='/profile/:username' 
+            render={(routerProps) => <ProfilePage match={routerProps.match}/>}
+          />
         </Context.Provider>
       </Switch>
     </div>
