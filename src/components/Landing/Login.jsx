@@ -1,29 +1,27 @@
 import axios from 'axios';
 import React, {useContext} from 'react';
+import { Link } from 'react-router-dom';
 import { Context } from '../Context';
 
 function Login() {
-  const {baseURL, user, setUser} = useContext(Context)
+  const {baseURL, user, setUser, setLoggedIn, loggedIn} = useContext(Context)
   
-  async function getUser(username) {
+  async function fetchUserInfo(username) {
     const url = `${baseURL}/users/${username}`
-   await axios.get(url)
-    .then(res => {
-      console.log(res.data)
-      setUser(res.data)
-    })
-    .catch(error => console.error(error))
+    const axiosResponse = await axios.get(url)
+    console.log(axiosResponse)
+    setUser(axiosResponse.data)
   }
-
-  function login(e) {
+  
+  async function login(e) {
     e.preventDefault()
     const username = e.target.username.value
-    getUser(username)
+    fetchUserInfo(username)
+    console.log("user hook", user)
+    setLoggedIn(true)
+    // console.log("logged in", loggedIn)
     // redirect to homepage
-    .then( console.log(user))
-   
   }
-
 
   return (
     <div>
@@ -37,6 +35,9 @@ function Login() {
         <input type='text' placeholder='Password' name='password'/>
         <button type='submit'>Log in</button>
       </form>
+      { loggedIn &&
+        <Link to="/homepage">Homepage</Link>
+      }
     </div>
   );
 }

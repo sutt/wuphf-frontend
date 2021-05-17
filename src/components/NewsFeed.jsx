@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect } from 'react';
 import { Context } from './Context';
 
-function Newsfeed(props) {
+function Newsfeed() {
   const {posts, setPosts, baseURL} = useContext(Context)
 
   //Getting all the posts

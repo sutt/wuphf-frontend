@@ -1,6 +1,7 @@
-import React from "react";
+import axios from 'axios'
+import React, { useContext } from "react";
 
-function UserPosts(props) {
+function UserPosts() {
   return <div>UserPosts Rendering</div>;
 }
 
