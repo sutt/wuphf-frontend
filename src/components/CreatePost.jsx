@@ -4,11 +4,12 @@ import { Context } from './Context'
 
 
 const CreatePost = () => {
-  const {baseURL, getPosts, user} = useContext(Context) 
+  const {baseURL, setPosts, user} = useContext(Context) 
   
   async function addPost (newPost) {
     const url = `${baseURL}/posts`
-    await axios.post(url, newPost)
+    const updatedPosts = await axios.post(url, newPost)
+    setPosts(updatedPosts.data)
   }
 
   function postWuphf (e) {
@@ -19,7 +20,6 @@ const CreatePost = () => {
     }
     console.log(newPost)
     addPost(newPost)
-    getPosts()
   }
 
   return (
