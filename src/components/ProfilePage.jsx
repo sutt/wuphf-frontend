@@ -8,7 +8,7 @@ import { Context } from "./Context";
 
 function ProfilePage({match}) {
   const matchUsername = match.params.username
-  const {loggedIn, user} = useContext(Context)
+  const {loggedIn} = useContext(Context)
 
 
   return (

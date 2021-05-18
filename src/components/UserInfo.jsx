@@ -11,6 +11,8 @@ function UserInfo() {
       <p>@{user.username}</p>
       <p>{user.location}</p>
       <p>{user.dob}</p>
+
+      <button>Edit User Info</button>
     </div>);
 }
 
