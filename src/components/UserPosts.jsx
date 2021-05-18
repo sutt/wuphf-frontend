@@ -3,22 +3,20 @@ import React, { useState, useContext } from "react";
 import Modal from 'react-modal'
 import { Context } from './Context';
 
-function UserPosts(props) {
-  const {posts, baseURL, getPosts, user } = useContext(Context)
-
-  const sortedPosts = [...posts].filter(post => post.author === user.username)
+function UserPosts() {
+  const {baseURL, posts, setPosts, user } = useContext(Context)
 
   async function deletePost (postId) {
     const url = `${baseURL}/posts/${postId}`
-    await axios.delete(url)
+    const updatedPosts = await axios.delete(url)
+    setPosts(updatedPosts.data)
   }
-
+  
   function deleteWuphf (e) {
     e.preventDefault()
     const postId = e.target.name
     console.log("Delete working");
     deletePost(postId)
-    getPosts()
   }
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -30,6 +28,10 @@ function UserPosts(props) {
     setModalIsOpen(false)
 }
 
+
+
+  // Need to sort posts to decending order
+  const sortedPosts = [...posts].filter(post => post.author === user.username)
 
 
   // creating <div> tags for each post to be rendered.
