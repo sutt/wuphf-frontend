@@ -35,8 +35,13 @@ function Login() {
         <input type='text' placeholder='Password' name='password'/>
         <button type='submit'>Log in</button>
       </form>
+
+      {/* { loggedIn &&
+          window.location.assign("http://localhost:3000/homepage")
+      } */}
+
       { loggedIn &&
-        <Link to="/homepage">Homepage</Link>
+        <Link to={"/homepage"}>Homepage</Link>
       }
     </div>
   );

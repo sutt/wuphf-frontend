@@ -18,6 +18,8 @@ function Newsfeed() {
       <div key={post._id}>
         <h4>{post.author}</h4>
         <p>{post.content}</p>
+        <button>Bookmark</button>
+        <button>Like</button>
       </div>
     )
   })
