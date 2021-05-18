@@ -3,22 +3,23 @@ import React, { useContext } from "react";
 import { Context } from './Context';
 
 function UserPosts() {
-  const {posts, baseURL, getPosts, user } = useContext(Context)
-
-  const sortedPosts = [...posts].filter(post => post.author === user.username)
+  const {baseURL, posts, setPosts, user } = useContext(Context)
 
   async function deletePost (postId) {
     const url = `${baseURL}/posts/${postId}`
-    await axios.delete(url)
+    const updatedPosts = await axios.delete(url)
+    setPosts(updatedPosts.data)
   }
-
+  
   function deleteWuphf (e) {
     e.preventDefault()
     const postId = e.target.name
     console.log("Delete working");
     deletePost(postId)
-    getPosts()
   }
+
+  // Need to sort posts to decending order
+  const sortedPosts = [...posts].filter(post => post.author === user.username)
 
   // creating <div> tags for each post to be rendered.
   const profileFeed = sortedPosts.map(post => {
