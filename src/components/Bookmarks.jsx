@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Bookmarks(props) {
+function Bookmarks() {
   return (
     <div>
       Bookmarks is rendering

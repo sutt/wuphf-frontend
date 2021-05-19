@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { useContext } from 'react';
 import Modal from 'react-modal'
 import { Context } from './Context';
@@ -7,20 +6,13 @@ Modal.setAppElement('#root')
 
 function EditPost({ post, modalIsOpen, setModalIsOpen }) {
 
-  const {baseURL, setPosts} = useContext(Context)
+  const {updatePost} = useContext(Context)
 
   // toggle function for modal open and close boolean
   function toggleModal() {
     setModalIsOpen(!modalIsOpen);
   }
 
-  // axios update request
-  async function updatePost (postId, newContent) {
-    const url = `${baseURL}/posts/${postId}`
-    const updatedPosts = await axios.put(url, newContent)
-    console.log(updatedPosts)
-    setPosts(updatedPosts.data)
-  }
   function editWuphf (e) {
     e.preventDefault()
     const postId =e.target.name

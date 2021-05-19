@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar'
 function Header() {
   const {setUser, loggedIn, setLoggedIn} = useContext(Context)
 
-  if (!loggedIn) return <Redirect to='/' />
+  if (!loggedIn) return <Redirect to='/'/>
 
   function signOut(){
     setUser({})

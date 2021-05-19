@@ -4,7 +4,7 @@ import { Context } from './Context';
 import EditPost from './EditPost'
 
 function UserPosts() {
-  const {baseURL, posts, setPosts, user } = useContext(Context)
+  const {baseURL, posts, setPosts, user, likePost } = useContext(Context)
 
   async function deletePost (postId) {
     const url = `${baseURL}/posts/${postId}`
@@ -35,7 +35,9 @@ function UserPosts() {
       <div key={post._id}>
         <h4>{post.author}</h4>
         <p>{post.content}</p>
+        <p>{post.likes.length}</p>
         <button onClick={() => openEditModal(post._id, post.content)}>Edit</button>
+        <button onClick={() => likePost(post, user.username)}>Like</button>
         <button onClick={deleteWuphf} name={post._id}>Delete</button>
       </div>
     )

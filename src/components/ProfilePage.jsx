@@ -10,6 +10,8 @@ import { Redirect } from "react-router";
 function ProfilePage() {
   const {loggedIn} = useContext(Context)
 
+  if (!loggedIn) return <Redirect to='/'/>
+
   return (
     <>
       { loggedIn &&

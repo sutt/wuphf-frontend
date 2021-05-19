@@ -6,6 +6,7 @@ import Bootstrap from 'bootstrap/dist/css/bootstrap.css'
 import Landing from './components/Landing/Landing'
 import Homepage from './components/Homepage'
 import ProfilePage from './components/ProfilePage'
+import Bookmarks from './components/Bookmarks'
 
 import './App.css';
 
@@ -31,12 +32,34 @@ function App() {
     })
   }
 
+  // axios update request
+  async function updatePost (postId, newContent) {
+    const url = `${baseURL}/posts/${postId}`
+    const updatedPosts = await axios.put(url, newContent)
+    console.log(updatedPosts)
+    setPosts(updatedPosts.data)
+  }
+
+  //Like function
+  function likePost(post, username){
+    const tempLikes = [...post.likes]
+    if (tempLikes.includes(username)) {
+      const index = tempLikes.indexOf(username)
+      tempLikes.splice(index, 1)
+      updatePost(post._id, {likes: tempLikes})
+    } else {
+      tempLikes.push(username)
+      updatePost(post._id, {likes: tempLikes})
+    }
+  }
+
   return (
     <div className="App">
       <Switch>
-        <Context.Provider value={{baseURL, user, setUser, posts, setPosts, getPosts, loggedIn, setLoggedIn}}>
+        <Context.Provider value={{baseURL, user, setUser, posts, setPosts, getPosts, updatePost, loggedIn, setLoggedIn, likePost}}>
           <Route exact path='/' component={Landing}/>
           <Route exact path='/homepage' component={Homepage}/>
+          <Route exact path='/bookmarks' component={Bookmarks}/>
           <Route exact path='/profile/:username' 
             render={(routerProps) => <ProfilePage match={routerProps.match}/>}
           />

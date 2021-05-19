@@ -18,8 +18,9 @@ function SignUp() {
   function signUp(e) {
     e.preventDefault()
     const newUser = {
-      name: e.target.firstname.value,
-      username: e.target.username.value.toLowerCase(),
+      firstName: e.target.firstname.value,
+      lastName: e.target.lastname.value,
+      username: e.target.username.value,
       password: e.target.password.value
     }
     addUser(newUser)
