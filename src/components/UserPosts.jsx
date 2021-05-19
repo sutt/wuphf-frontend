@@ -3,6 +3,8 @@ import React, { useState, useContext } from "react";
 import Modal from 'react-modal'
 import { Context } from './Context';
 
+Modal.setAppElement('#root')
+
 function UserPosts() {
   const {baseURL, posts, setPosts, user } = useContext(Context)
 
@@ -19,16 +21,12 @@ function UserPosts() {
     deletePost(postId)
   }
 
+  // Setting up react-Modal hook and functions:
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const setModaltoOpenToTrue = () => {
-    setModalIsOpen(true)
-    console.log(modalIsOpen)
+
+  function toggleModal() {
+    setModalIsOpen(!modalIsOpen);
   }
-  const setModalIsOpenToFalse =() => {
-    setModalIsOpen(false)
-}
-
-
 
   // Need to sort posts to decending order
   const sortedPosts = [...posts].filter(post => post.author === user.username)
@@ -40,16 +38,14 @@ function UserPosts() {
       <div key={post._id}>
         <h4>{post.author}</h4>
         <p>{post.content}</p>
-        <button onClick={setModaltoOpenToTrue} name={post._id}>Edit</button>
+        <button onClick={toggleModal} name={post._id}>Edit</button>
         <button onClick={deleteWuphf} name={post._id}>Delete</button>
-        <Modal isOpen={modalIsOpen} ariaHideApp={false}>
-          <button onClick={setModalIsOpenToFalse}>x</button>
-          {/* This will cause an error because of needing an onchange function */}
-          {/* <form><textarea type='text' value={post.content} name='post'/> */}
-          {/* When using post.content, only the last comment will render in the Modal */}
-          {/* <h1>{post.content}</h1> */}
-          <h1>Hello</h1>
-          {/* </form> */}
+        <Modal isOpen={modalIsOpen} onRequestClose={toggleModal}>
+          <h2>Edit Post</h2>
+          <button onClick={toggleModal}>x</button>
+          <form>
+            
+          </form>
         </Modal>
         </div>
     )
