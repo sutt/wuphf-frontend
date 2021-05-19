@@ -20,6 +20,7 @@ const CreatePost = () => {
     }
     console.log(newPost)
     addPost(newPost)
+    e.target.reset()
   }
 
   return (

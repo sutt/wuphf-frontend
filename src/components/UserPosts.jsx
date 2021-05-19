@@ -17,7 +17,7 @@ function UserPosts() {
     deletePost(postId)
   }
 
-  // Setting up react-Modal hook and functions:
+  // Setting up react-Modal hooks and functions:
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [postToBeEdited, setPostToBeEdited] = useState({});
 

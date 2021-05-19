@@ -8,25 +8,25 @@ function Login() {
 
   if (loggedIn) return <Redirect to='/homepage' />
   
-  async function fetchUserInfo(username) {
+  async function fetchUserInfo(username, password) {
     const url = `${baseURL}/users/${username}`
     const axiosResponse = await axios.get(url)
     console.log('axiosResposne:', axiosResponse)
     if (axiosResponse.data === null ) {
       alert('Please enter valid username and password')
       console.log('axios returned data null')
-    } else if (axiosResponse.data.username === username){
+    } else if (axiosResponse.data.username === username && axiosResponse.data.password === password){
       setUser(axiosResponse.data)
       setLoggedIn(true)
       console.log('user state:', user)
-    }
+    } 
   }
   
   function handleLogin(e) {
     e.preventDefault()
     const username = e.target.username.value
     const password = e.target.password.value
-    fetchUserInfo(username)
+    fetchUserInfo(username, password)
   }
 
   return (
