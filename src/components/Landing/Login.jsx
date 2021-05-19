@@ -10,6 +10,9 @@ function Login() {
   
   async function fetchUserInfo(username, password) {
     const url = `${baseURL}/users/${username}`
+    // const url = `${baseURL}/users/`
+    // const requestBody = {username: username, password: password}
+    // const axiosResponse = await axios.get(url, requestBody)
     const axiosResponse = await axios.get(url)
     console.log('axiosResposne:', axiosResponse)
     if (axiosResponse.data === null ) {
