@@ -1,13 +1,18 @@
 import axios from 'axios';
 import React, { useContext } from 'react';
+import { Redirect } from 'react-router';
 import { Context } from '../Context';
 
 function SignUp() {
-  const {baseURL, setUser, setLoggedIn} = useContext(Context)
-    
+  const {baseURL, setUser, loggedIn, setLoggedIn} = useContext(Context)
+
+  if (loggedIn) return <Redirect to='/homepage' />
+
   async function addUser (newUser) {
     const url = `${baseURL}/users`
     await axios.post(url, newUser)
+    setUser(newUser)
+    setLoggedIn(true)
   }
 
   function signUp(e) {
@@ -17,11 +22,7 @@ function SignUp() {
       username: e.target.username.value.toLowerCase(),
       password: e.target.password.value
     }
-    console.log(newUser)
     addUser(newUser)
-    setUser(newUser)
-    setLoggedIn(true)
-    // redirect to homepage
   }
 
   return (
