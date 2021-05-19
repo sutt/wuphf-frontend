@@ -30,7 +30,8 @@ function Login() {
   }
 
   return (
-    <div>
+    <div className='col-6'>
+      <h1>Login</h1>
       <form onSubmit={handleLogin}>
         <input type='text' placeholder='Username' name='username'/>
         <input type='text' placeholder='Password' name='password'/>

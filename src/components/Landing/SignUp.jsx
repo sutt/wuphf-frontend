@@ -18,7 +18,7 @@ function SignUp() {
   function signUp(e) {
     e.preventDefault()
     const newUser = {
-      name: e.target.name.value,
+      name: e.target.firstname.value,
       username: e.target.username.value.toLowerCase(),
       password: e.target.password.value
     }
@@ -26,10 +26,12 @@ function SignUp() {
   }
 
   return (
-    <div>
+    <div className='col-6'>
+      <h1>Sign Up</h1>
       <form onSubmit={signUp}>
-        <input type='text' placeholder='Full Name' name='name'/>
-        <input type='text' placeholder='username' name='username'/>
+        <input type='text' placeholder='First Name' name='firstname'/>
+        <input type='text' placeholder='Last Name' name='lastname'/>
+        <input type='text' placeholder='Username' name='username'/>
         <input type='text' placeholder='Password' name='password'/>
         <button type='submit'>Sign Up</button>
       </form>
