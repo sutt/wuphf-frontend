@@ -4,13 +4,13 @@ import CreatePost from './CreatePost'
 import Newsfeed from './NewsFeed'
 import SideBar from './SideBar'
 
-function Homepage(props) {
+function Homepage() {
   return (
     <div>
-      <Header/>
+      <Header />
+      <SideBar />
       <CreatePost />
       <Newsfeed /> 
-      <SideBar />
     </div>
   );
 }

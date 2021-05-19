@@ -5,12 +5,14 @@ import { Context } from './Context'
 
 const CreatePost = () => {
   const {baseURL, setPosts, user} = useContext(Context) 
-  const addPost = async (newPost) => {
+  
+  async function addPost (newPost) {
     const url = `${baseURL}/posts`
-    axios.post(url, newPost)
+    const updatedPosts = await axios.post(url, newPost)
+    setPosts(updatedPosts.data)
   }
 
-  const postWuphf = (e) => {
+  function postWuphf (e) {
     e.preventDefault()
     const newPost = {
       author: user.username,
@@ -18,14 +20,14 @@ const CreatePost = () => {
     }
     console.log(newPost)
     addPost(newPost)
-    setPosts(newPost)
+    e.target.reset()
   }
 
   return (
   <div>
     <form onSubmit={postWuphf}>
-    <textarea type='text' name='post' placeholder='Make a new post!'/>
-    <button type='submit'>Submit Post</button> 
+    <textarea type='text' name='post' placeholder={`What's on your mind ${user.firstName}?`}/>
+    <button type='submit'>wuphf!</button> 
     </form>
   </div>
   )
