@@ -35,7 +35,6 @@ function App() {
     <div className="App">
       <Switch>
         <Context.Provider value={{baseURL, user, setUser, posts, setPosts, getPosts, loggedIn, setLoggedIn}}>
-          {/* <Route redirect='/' => '/homepage' if {{loggedIn}} */}
           <Route exact path='/' component={Landing}/>
           <Route exact path='/homepage' component={Homepage}/>
           <Route exact path='/profile/:username' 

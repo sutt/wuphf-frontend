@@ -25,7 +25,7 @@ const CreatePost = () => {
   return (
   <div>
     <form onSubmit={postWuphf}>
-    <textarea type='text' name='post' placeholder='Make a new post!'/>
+    <textarea type='text' name='post' placeholder={`What's on your mind ${user.name}`}/>
     <button type='submit'>Submit Post</button> 
     </form>
   </div>
