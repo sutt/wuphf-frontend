@@ -11,7 +11,7 @@ import Bookmarks from './components/Bookmarks'
 import './App.css';
 
 function App() {
-  const baseURL = "http://localhost:4000"
+  const baseURL = "https://wuphf-database.herokuapp.com"
   
   const [user, setUser] = useState({})
   const [posts, setPosts] = useState([])
