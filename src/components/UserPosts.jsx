@@ -1,38 +1,33 @@
 import axios from 'axios'
 import React, { useState, useContext } from "react";
-import Modal from 'react-modal'
 import { Context } from './Context';
+import EditPost from './EditPost'
 
 function UserPosts() {
-  const {baseURL, posts, setPosts, user } = useContext(Context)
+  const {baseURL, posts, setPosts, user, likePost } = useContext(Context)
 
   async function deletePost (postId) {
     const url = `${baseURL}/posts/${postId}`
     const updatedPosts = await axios.delete(url)
     setPosts(updatedPosts.data)
   }
-  
   function deleteWuphf (e) {
     e.preventDefault()
     const postId = e.target.name
-    console.log("Delete working");
     deletePost(postId)
   }
 
+  // Setting up react-Modal hooks and functions:
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const setModaltoOpenToTrue = () => {
+  const [postToBeEdited, setPostToBeEdited] = useState({});
+
+  function openEditModal(id, content) {
     setModalIsOpen(true)
-    console.log(modalIsOpen)
+    setPostToBeEdited({id: id, content: content})
   }
-  const setModalIsOpenToFalse =() => {
-    setModalIsOpen(false)
-}
-
-
 
   // Need to sort posts to decending order
   const sortedPosts = [...posts].filter(post => post.author === user.username)
-
 
   // creating <div> tags for each post to be rendered.
   const profileFeed = sortedPosts.map(post => {
@@ -40,24 +35,20 @@ function UserPosts() {
       <div key={post._id}>
         <h4>{post.author}</h4>
         <p>{post.content}</p>
-        <button onClick={setModaltoOpenToTrue} name={post._id}>Edit</button>
+        <p>{post.likes.length}</p>
+        <button onClick={() => openEditModal(post._id, post.content)}>Edit</button>
+        <button onClick={() => likePost(post, user.username)}>Like</button>
         <button onClick={deleteWuphf} name={post._id}>Delete</button>
-        <Modal isOpen={modalIsOpen} ariaHideApp={false}>
-          <button onClick={setModalIsOpenToFalse}>x</button>
-          {/* This will cause an error because of needing an onchange function */}
-          {/* <form><textarea type='text' value={post.content} name='post'/> */}
-          {/* When using post.content, only the last comment will render in the Modal */}
-          {/* <h1>{post.content}</h1> */}
-          <h1>Hello</h1>
-          {/* </form> */}
-        </Modal>
-        </div>
+      </div>
     )
   })
 
   return(
     <div>
       {profileFeed}
+      { modalIsOpen && 
+        <EditPost post={postToBeEdited} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}/>
+      }
     </div>
   )
 }

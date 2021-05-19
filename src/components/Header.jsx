@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Redirect } from 'react-router';
+import { Context } from './Context';
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
 
-function Header(props) {
+function Header() {
+  const {setUser, loggedIn, setLoggedIn} = useContext(Context)
+
+  if (!loggedIn) return <Redirect to='/'/>
+
+  function signOut(){
+    setUser({})
+    setLoggedIn(false)
+  }
+
   return (
-    <div>
-      Header
-    </div>
+    <Navbar bg='primary' className='justify-content-end'>
+      <button onClick={signOut}>Sign Out</button>
+    </Navbar>
   );
 }
 

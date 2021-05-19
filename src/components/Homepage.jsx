@@ -7,7 +7,7 @@ import SideBar from './SideBar'
 function Homepage() {
   return (
     <div>
-      <Header/>
+      <Header />
       <SideBar />
       <CreatePost />
       <Newsfeed /> 

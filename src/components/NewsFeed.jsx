@@ -1,9 +1,8 @@
-import axios from 'axios';
 import React, { useContext, useEffect } from 'react';
 import { Context } from './Context';
 
 function Newsfeed() {
-  const {posts, getPosts} = useContext(Context)
+  const {user, posts, getPosts, likePost} = useContext(Context)
 
   useEffect(()=> {getPosts()}, [])
 
@@ -18,8 +17,10 @@ function Newsfeed() {
       <div key={post._id}>
         <h4>{post.author}</h4>
         <p>{post.content}</p>
+        <p>{post.likes.length}</p>
+        <button>Comment</button>
+        <button onClick={() => likePost(post, user.username)}>Like</button>
         <button>Bookmark</button>
-        <button>Like</button>
       </div>
     )
   })

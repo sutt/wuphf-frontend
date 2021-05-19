@@ -20,13 +20,14 @@ const CreatePost = () => {
     }
     console.log(newPost)
     addPost(newPost)
+    e.target.reset()
   }
 
   return (
   <div>
     <form onSubmit={postWuphf}>
-    <textarea type='text' name='post' placeholder='Make a new post!'/>
-    <button type='submit'>Submit Post</button> 
+    <textarea type='text' name='post' placeholder={`What's on your mind ${user.firstName}?`}/>
+    <button type='submit'>wuphf!</button> 
     </form>
   </div>
   )
