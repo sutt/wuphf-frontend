@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import { Context } from './Context';
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faComment, faBookmark } from "@fortawesome/free-regular-svg-icons";
 
@@ -12,10 +11,6 @@ function Newsfeed() {
   const {user, posts, getPosts, likePost} = useContext(Context)
 
   useEffect(()=> {getPosts()}, [])
-
-  console.log(`console posts: ${posts}`)
-  console.log(posts)
-
   let sortedPosts = [...posts].reverse()
 
   // creating <div> tags for each post to be rendered.
@@ -28,12 +23,9 @@ function Newsfeed() {
             <p>{post.content}</p>
           </blockquote>
         </div>
-        
         <nav className='navbar border-top'>
-        <i className="far fa-comments btn">{comment}</i>
-
-        <i onClick={() => likePost(post, user.username)} className="far fa-heart btn">{heart}<span className='badge badge-light'>{post.likes.length}</span></i>
-
+          <i className="far fa-comments btn">{comment}</i>
+          <i onClick={() => likePost(post, user.username)} className="far fa-heart btn">{heart}<span className='badge badge-light'>{post.likes.length}</span></i>
           <i className="far fa-bookmark btn"> {bookmark}</i>
         </nav>
       </div>

@@ -7,24 +7,19 @@ import Landing from './components/Landing/Landing'
 import Homepage from './components/Homepage'
 import ProfilePage from './components/ProfilePage'
 import Bookmarks from './components/Bookmarks'
-
 import './App.css';
 
 function App() {
-  // const baseURL = "https://wuphf-database.herokuapp.com"
-  const baseURL = "http://localhost:4000"
-  
+  const baseURL = "https://wuphf-database.herokuapp.com"
+  // const baseURL = "http://localhost:4000"
   const [user, setUser] = useState({})
   const [posts, setPosts] = useState([])
   const [loggedIn, setLoggedIn] = useState(false)
-
   //Getting all the posts
   async function getPosts () {
     const url = `${baseURL}/posts/`
     await axios.get(url)
     .then(res => {
-      console.log(`res.data:`)
-      console.log(res.data)
       setPosts(res.data)
     })
     .catch(error => {
@@ -37,7 +32,6 @@ function App() {
   async function updatePost (postId, newContent) {
     const url = `${baseURL}/posts/${postId}`
     const updatedPosts = await axios.put(url, newContent)
-    console.log(updatedPosts)
     setPosts(updatedPosts.data)
   }
 

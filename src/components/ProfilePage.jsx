@@ -39,9 +39,9 @@ function ProfilePage() {
   return (
     <>
       { loggedIn &&
-        <div className='wrapper'>
+        <div className='profilePageWrapper'>
           <SideBar />
-          <div className='container profileBackground'>
+          <div className='container'>
             <div className='row'>
               <div className='col'>
                 <UserInfo modalStyling={modalStyling}/>
