@@ -33,12 +33,23 @@ function Login() {
   }
 
   return (
-    <div className='col-6'>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <input type='text' placeholder='Username' name='username'/>
-        <input type='text' placeholder='Password' name='password'/>
-        <button type='submit'>Log in</button>
+    <div className='col-md-6'>
+      <h3 className='text-center'>Login</h3>
+      <form onSubmit={handleLogin} name='login'>
+        <div className='form-group'>
+          <label>Username</label>
+          <input type='text' className='form-control' name='username' placeholder='Enter your username' />
+        </div>
+        <div className='form-group'>
+          <label>Password</label>
+          <input type='password' className='form-control' name='password' placeholder='Enter your password' />
+        </div>
+        <div className="text-left form-group">
+          <button type="submit" className="btn btn-primary btn-lg">Login</button>
+        </div>
+        <div class="form-group">
+          <a href="#" className="ForgetPwd">Forget Password?</a>
+        </div>
       </form>
     </div>
   );

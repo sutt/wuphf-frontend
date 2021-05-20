@@ -6,11 +6,17 @@ import SideBar from './SideBar'
 
 function Homepage() {
   return (
-    <div>
-      <Header />
+    <div className='wrapper'>
       <SideBar />
-      <CreatePost />
-      <Newsfeed /> 
+      <div className='container'>
+        <div className='row'>
+          <div className='col'>
+            <Header />
+            <CreatePost />
+            <Newsfeed /> 
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

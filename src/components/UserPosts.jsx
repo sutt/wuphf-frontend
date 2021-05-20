@@ -27,18 +27,26 @@ function UserPosts() {
   }
 
   // Need to sort posts to decending order
-  const sortedPosts = [...posts].filter(post => post.author === user.username)
+  const sortedPosts = [...posts].reverse().filter(post => post.author === user.username)
 
   // creating <div> tags for each post to be rendered.
   const profileFeed = sortedPosts.map(post => {
     return (
-      <div key={post._id}>
-        <h4>{post.author}</h4>
-        <p>{post.content}</p>
-        <p>{post.likes.length}</p>
-        <button onClick={() => openEditModal(post._id, post.content)}>Edit</button>
-        <button onClick={() => likePost(post, user.username)}>Like</button>
-        <button onClick={deleteWuphf} name={post._id}>Delete</button>
+      <div key={post._id} className='card mt-2 border-info'>
+        <h5 className='card-header'>@{post.author}</h5>
+        <div className='card-body'>
+          <blockquote className='blockquote mb-0'>
+            <p>{post.content}</p>
+          </blockquote>
+        </div>
+        
+        <nav className='navbar border-top'>
+          <button onClick={() => openEditModal(post._id, post.content)}>Edit</button>
+          <button onClick={() => likePost(post, user.username)}>
+            Like <spam className='badge badge-light'>{post.likes.length}</spam>
+          </button>
+          <button onClick={deleteWuphf} name={post._id}>Delete</button>
+        </nav>
       </div>
     )
   })
