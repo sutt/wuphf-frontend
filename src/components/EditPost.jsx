@@ -26,8 +26,13 @@ function EditPost({ post, modalIsOpen, setModalIsOpen }) {
       <h2>Edit Post</h2>
       <button onClick={toggleModal}>x</button>
       <form onSubmit={editWuphf} name={post.id}>
+      <div className='form-group'>
         <textarea type='text' name='newContent' defaultValue={post.content}/>
+      </div>
+      <div className='form-group'>
         <button type='submit'>Save</button>
+      </div>
+
       </form>
     </Modal>
   );
