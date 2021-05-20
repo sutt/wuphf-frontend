@@ -8,17 +8,15 @@ import Col from 'react-bootstrap/Col'
 function Landing() {
   return (
     <>
-    <h1>Welcome to wuphf</h1>
-    <Container>
-      <Row>
-        <Col>
-          <SignUp />
-        </Col>
-        <Col>
-          <Login />
-        </Col>
-      </Row>
-    </Container>
+    <div className='jumbotron text-center'>
+      <h1 className='display-5'>Welcome to wuphf</h1>
+    </div>
+    <div className='container'>
+      <div className='row align-items-center'>
+        <SignUp />
+        <Login />
+      </div>
+    </div>
     </>
   )
 }
