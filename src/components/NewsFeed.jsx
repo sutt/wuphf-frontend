@@ -14,13 +14,20 @@ function Newsfeed() {
   // creating <div> tags for each post to be rendered.
   const newsFeed = sortedPosts.map(post => {
     return (
-      <div key={post._id}>
-        <h4>{post.author}</h4>
-        <p>{post.content}</p>
-        <p>{post.likes.length}</p>
-        <button>Comment</button>
-        <button onClick={() => likePost(post, user.username)}>Like</button>
-        <button>Bookmark</button>
+      <div key={post._id} className="card">
+        <h6 className='card-header'>@{post.author}</h6>
+        <div className='card-body'>
+          <blockquote className='blockquote mb-0'>
+            <p>{post.content}</p>
+          </blockquote>
+        </div>
+        <nav className='navbar'>
+          <button>Comment</button>
+          <button onClick={() => likePost(post, user.username)}>
+            Like <spam className='badge badge-light'>{post.likes.length}</spam>
+          </button>
+          <button>Bookmark</button>
+        </nav>
       </div>
     )
   })
