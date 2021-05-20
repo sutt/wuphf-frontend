@@ -9,7 +9,7 @@ function Newsfeed() {
   console.log(`console posts: ${posts}`)
   console.log(posts)
 
-  let sortedPosts = [...posts]
+  let sortedPosts = [...posts].reverse()
 
   // creating <div> tags for each post to be rendered.
   const newsFeed = sortedPosts.map(post => {
@@ -21,6 +21,7 @@ function Newsfeed() {
             <p>{post.content}</p>
           </blockquote>
         </div>
+        
         <nav className='navbar'>
           <button>Comment</button>
           <button onClick={() => likePost(post, user.username)}>
