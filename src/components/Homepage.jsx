@@ -1,17 +1,16 @@
 import React from 'react';
-import Header from './Header'
 import CreatePost from './CreatePost'
 import Newsfeed from './NewsFeed'
 import SideBar from './SideBar'
 
 function Homepage() {
   return (
-    <div className='wrapper'>
+    <div className='homePageWrapper'>
       <SideBar />
-      <div className='container'>
+      <div className='container homeBackground'>
         <div className='row'>
           <div className='col'>
-            <Header />
+            <h1 className='newsfeedTitle'>Welcome to Wuphf</h1>
             <CreatePost />
             <Newsfeed /> 
           </div>

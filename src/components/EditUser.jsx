@@ -5,7 +5,7 @@ import { Context } from './Context';
 
 Modal.setAppElement('#root')
 
-function EditUser({ userInfoModalIsOpen, setUserInfoModalIsOpen }) {
+function EditUser({ userInfoModalIsOpen, setUserInfoModalIsOpen, modalStyling }) {
 
   const {baseURL, setUser, user} = useContext(Context)
 
@@ -35,16 +35,28 @@ function EditUser({ userInfoModalIsOpen, setUserInfoModalIsOpen }) {
   }
 
   return (
-    <Modal isOpen={userInfoModalIsOpen} onRequestClose={toggleUserInfoModal}>
+    <Modal style={modalStyling} isOpen={userInfoModalIsOpen} onRequestClose={toggleUserInfoModal}>
       <h2>Edit Profile</h2>
-      <button onClick={toggleUserInfoModal}>x</button>
       <form onSubmit={editUser}>
-        <input type='text' name='firstName' defaultValue={user.firstName}/>
-        <input type='text' name='lastName' defaultValue={user.lastName}/>
-        <input type='text' name='profilePhoto' defaultValue={user.profilePhoto}/>
-        <input type='text' name='dob' defaultValue={user.dob}/>
-        <input type='text' name='location' defaultValue={user.location}/>
-        <button type='submit'>Update Profile Info</button>
+      <div className='form-group'>
+        <input className="form-control" type='text' name='firstName' defaultValue={user.firstName} placeholder='First name'/>
+      </div>
+      <div className='form-group'>
+        <input className="form-control" type='text' name='lastName' defaultValue={user.lastName} placeholder='Last name' />
+      </div>
+      <div className='form-group'>
+        <input className="toolform-control" type='text' name='profilePhoto' defaultValue={user.profilePhoto} placeholder='Photo'/>   
+      </div>
+      <div className='form-group'>
+        <input className="form-control" type='text' name='dob' defaultValue={user.dob} placeholder='Date of Birth'/>
+      </div>
+      <div className='form-group'>
+       <input className="form-control" type='text' name='location' defaultValue={user.location} placeholder='Location'/>
+      </div>
+      <div className='form-group'>
+       <button className="modalButton" type='submit'>Update Profile Info</button>
+      <button className="modalButton" onClick={toggleUserInfoModal}>Close</button>
+      </div>
       </form>
     </Modal>
   );

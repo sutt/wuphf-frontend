@@ -4,7 +4,7 @@ import { Context } from './Context';
 
 Modal.setAppElement('#root')
 
-function EditPost({ post, modalIsOpen, setModalIsOpen }) {
+function EditPost({ post, modalIsOpen, setModalIsOpen, modalStyling }) {
 
   const {updatePost} = useContext(Context)
 
@@ -21,14 +21,22 @@ function EditPost({ post, modalIsOpen, setModalIsOpen }) {
     toggleModal()
   }
 
+
   return (
-    <Modal isOpen={modalIsOpen} onRequestClose={toggleModal}>
-      <h2>Edit Post</h2>
-      <button onClick={toggleModal}>x</button>
-      <form onSubmit={editWuphf} name={post.id}>
-        <textarea type='text' name='newContent' defaultValue={post.content}/>
-        <button type='submit'>Save</button>
-      </form>
+    <Modal style={modalStyling} isOpen={modalIsOpen} onRequestClose={toggleModal}>
+      <div>
+        <h2>Edit Post</h2>
+        <form onSubmit={editWuphf} name={post.id}>
+        <div className='form-group'>
+          <textarea type='text' name='newContent' placeholder="New content" defaultValue={post.content}/>
+        </div>
+        <div className='form-group'>
+          <button className="modalButton" type='submit'>Save</button>
+          <button className="modalButton" onClick={toggleModal}>Close</button>
+        </div>
+
+        </form>
+      </div>
     </Modal>
   );
 }

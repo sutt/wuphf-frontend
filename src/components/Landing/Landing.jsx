@@ -8,7 +8,6 @@ function Landing() {
     <>
     <div className='jumbotron text-center'>
       <img src={logo} width="30%" height="30%" alt='wuphfLogo'/>
-      {/* <h1 className='display-5'>Welcome to Wuphf</h1> */}
     </div>
     <div className='container'>
       <div className='row align-items-center'>
