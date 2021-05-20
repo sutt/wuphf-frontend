@@ -15,16 +15,22 @@ function ProfilePage() {
   return (
     <>
       { loggedIn &&
-        <div>
-          <Header /> 
+        <div className='wrapper'>
           <SideBar />
-          <UserInfo />
-          <CreatePost />
-          <UserPosts />
+          <div className='container'>
+            <div className='row'>
+              <div className='col'>
+                <Header />
+                <UserInfo />
+                <CreatePost />
+                <UserPosts />
+              </div>
+            </div>
+          </div>
         </div>
       }
     </>
-  );
+  )
 }
 
 export default ProfilePage;
