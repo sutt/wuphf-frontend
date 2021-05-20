@@ -14,8 +14,8 @@ function Newsfeed() {
   // creating <div> tags for each post to be rendered.
   const newsFeed = sortedPosts.map(post => {
     return (
-      <div key={post._id} className="card">
-        <h6 className='card-header'>@{post.author}</h6>
+      <div key={post._id} className="card mt-2 border-info">
+        <h5 className='card-header'>@{post.author}</h5>
         <div className='card-body'>
           <blockquote className='blockquote mb-0'>
             <p>{post.content}</p>

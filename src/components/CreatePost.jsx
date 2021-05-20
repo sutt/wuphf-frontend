@@ -24,11 +24,11 @@ const CreatePost = () => {
   }
 
   return (
-  <div className='card'>
+  <div className='card mt-2 border-info'>
     <div className='card-body'>
       <form onSubmit={postWuphf}>
         <textarea type='text' name='post' placeholder={`What's on your mind ${user.firstName}?`}/>
-        <nav className='navbar border-top'>
+        <nav className='navbar border-top border-warning'>
           <button type='button'>photo/video</button>
           <button type='submit'>wuphf!</button>
         </nav>
