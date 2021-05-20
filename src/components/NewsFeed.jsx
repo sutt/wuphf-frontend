@@ -1,6 +1,13 @@
 import React, { useContext, useEffect } from 'react';
 import { Context } from './Context';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faComment, faBookmark } from "@fortawesome/free-regular-svg-icons";
+
+const heart = <FontAwesomeIcon icon={faHeart} />;
+const comment = <FontAwesomeIcon icon={faComment} />;
+const bookmark = <FontAwesomeIcon icon={faBookmark} />;
+
 function Newsfeed() {
   const {user, posts, getPosts, likePost} = useContext(Context)
 
@@ -23,11 +30,11 @@ function Newsfeed() {
         </div>
         
         <nav className='navbar border-top'>
-          <button>Comment</button>
-          <button onClick={() => likePost(post, user.username)}>
-            Like <spam className='badge badge-light'>{post.likes.length}</spam>
-          </button>
-          <button>Bookmark</button>
+        <i className="far fa-comments btn">{comment}</i>
+
+        <i onClick={() => likePost(post, user.username)} className="far fa-heart btn">{heart}<span className='badge badge-light'>{post.likes.length}</span></i>
+
+          <i className="far fa-bookmark btn"> {bookmark}</i>
         </nav>
       </div>
     )

@@ -2,6 +2,9 @@ import axios from 'axios'
 import React, { useContext } from 'react';
 import { Context } from './Context'
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDog } from "@fortawesome/free-solid-svg-icons";
+const wuphf = <FontAwesomeIcon icon={faDog} />;
 
 const CreatePost = () => {
   const {baseURL, setPosts, user} = useContext(Context) 
@@ -30,7 +33,7 @@ const CreatePost = () => {
         <textarea type='text' name='post' placeholder={`What's on your mind ${user.firstName}?`}/>
         <nav className='navbar border-top border-warning'>
           <button type='button'>photo/video</button>
-          <button type='submit'>wuphf!</button>
+          <button type='submit' className="btn btn-outline-primary btn-sm"> <i class="fab fa-wolf-pack-battalion btn">{wuphf} Wuphf!</i></button>
         </nav>
       </form>
     </div>

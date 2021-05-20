@@ -2,6 +2,11 @@ import React, { useState, useContext } from "react";
 import { Context } from "./Context";
 import EditUser from './EditUser'
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserEdit } from "@fortawesome/free-solid-svg-icons";
+
+const userEdit = <FontAwesomeIcon icon={faUserEdit} />;
+
 function UserInfo() {
   const {user} = useContext(Context)
 
@@ -28,7 +33,7 @@ function UserInfo() {
         </div>
       </div>
       <div>
-        <button onClick={openUserInfoModal}>Edit User Info</button>
+        <i className="btn" onClick={openUserInfoModal}> Edit { userEdit } </i>
         { userInfoModalIsOpen &&
           <EditUser userInfoModalIsOpen={userInfoModalIsOpen} setUserInfoModalIsOpen={setUserInfoModalIsOpen}/>
         }
