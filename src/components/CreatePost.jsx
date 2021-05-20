@@ -24,11 +24,16 @@ const CreatePost = () => {
   }
 
   return (
-  <div>
-    <form onSubmit={postWuphf}>
-    <textarea type='text' name='post' placeholder={`What's on your mind ${user.firstName}?`}/>
-    <button type='submit'>wuphf!</button> 
-    </form>
+  <div className='card'>
+    <div className='card-body'>
+      <form onSubmit={postWuphf}>
+        <textarea type='text' name='post' placeholder={`What's on your mind ${user.firstName}?`}/>
+        <nav className='navbar border-top'>
+          <button type='button'>photo/video</button>
+          <button type='submit'>wuphf!</button>
+        </nav>
+      </form>
+    </div>
   </div>
   )
 }

@@ -22,7 +22,7 @@ function Newsfeed() {
           </blockquote>
         </div>
         
-        <nav className='navbar'>
+        <nav className='navbar border-top'>
           <button>Comment</button>
           <button onClick={() => likePost(post, user.username)}>
             Like <spam className='badge badge-light'>{post.likes.length}</spam>
