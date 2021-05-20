@@ -5,7 +5,7 @@ import { Context } from './Context';
 
 Modal.setAppElement('#root')
 
-function EditUser({ userInfoModalIsOpen, setUserInfoModalIsOpen }) {
+function EditUser({ userInfoModalIsOpen, setUserInfoModalIsOpen, modalStyling }) {
 
   const {baseURL, setUser, user} = useContext(Context)
 
@@ -35,9 +35,8 @@ function EditUser({ userInfoModalIsOpen, setUserInfoModalIsOpen }) {
   }
 
   return (
-    <Modal isOpen={userInfoModalIsOpen} onRequestClose={toggleUserInfoModal}>
+    <Modal style={modalStyling} isOpen={userInfoModalIsOpen} onRequestClose={toggleUserInfoModal}>
       <h2>Edit Profile</h2>
-      <button onClick={toggleUserInfoModal}>x</button>
       <form onSubmit={editUser}>
       <div className='form-group'>
         <input className="form-control" type='text' name='firstName' defaultValue={user.firstName} placeholder='First name'/>
@@ -55,7 +54,8 @@ function EditUser({ userInfoModalIsOpen, setUserInfoModalIsOpen }) {
        <input className="form-control" type='text' name='location' defaultValue={user.location} placeholder='Location'/>
       </div>
       <div className='form-group'>
-       <button type='submit'>Update Profile Info</button>
+       <button className="modalButton" type='submit'>Update Profile Info</button>
+      <button className="modalButton" onClick={toggleUserInfoModal}>Close</button>
       </div>
       </form>
     </Modal>

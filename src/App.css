@@ -1,13 +1,66 @@
 .jumbotron {
-  background-color: #2f3c7e;
+  background-color: #234E70;
 }
 .wrapper {
   display: flex;
   width: 100%;
   align-items: stretch;
+  background: linear-gradient(to right, white, rgb(225, 187, 130));
 }
+
 #sidebar {
   min-width: 150px;
   max-width: 150px;
   min-height: 100vh;
+  background-color: #2f3c7e;
+}
+
+textarea{
+  width: 100%;
+}
+
+img{
+  cursor: pointer;
+}
+
+img:hover{
+  opacity: .5;
+}
+
+li{
+  list-style-type: none;
+  padding: 15px;
+}
+
+.sideBarUl{
+  position: fixed;
+  text-align: center;
+  margin: 0 auto;
+}
+.iconSize{
+  font-size: 25px;
+  color: white;
+}
+
+.iconSize:hover{
+  color: rgb(225, 187, 130)
+}
+
+.signOut{
+  margin-top: 70px;
+}
+
+.userBackground{
+  background-color: rgb(255, 255, 255, 0);
+}
+
+.modalButton{
+  margin: 4px;
+  color: white;
+  background-color: #2f3c7e;
+  border-radius: 5px;
+}
+
+.modalButton:hover{
+  border: rgb(158, 212, 245) 3px solid;
 }

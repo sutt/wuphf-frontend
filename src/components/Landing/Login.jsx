@@ -51,8 +51,11 @@ function Login() {
           <input type='text' className='form-control' name='username' placeholder='Enter your username' />
         </div>
         <div className='form-group'>
-          <label>Password</label>
-          <input type={passwordShown ? "text" : "password"} placeholder='Enter your password' className='form-control' name='password' /> <i onClick={togglePasswordVisiblity}>{eye}</i>
+
+          <label>Password <i onClick={togglePasswordVisiblity}>{eye}</i> </label>
+
+          <input type={passwordShown ? "text" : "password"} placeholder='Enter your password' className='form-control' name='password'/> 
+
         </div>
         <div className="text-left form-group">
           <button type="submit" className="btn btn-primary btn-lg">Login</button>
