@@ -30,12 +30,13 @@ function SignUp() {
     <div className='col-md-6 border-right border-danger'>
       <h3 className='text-center'>Sign Up</h3>
       <form onSubmit={signUp} name='signup'>
-        <div className='form-group'>
-          <input type='text' className='form-control' name='firstname' placeholder='First name' />
-        </div>
-
-        <div className='form-group'>
-          <input type='text' className='form-control' name='lastname' placeholder='Last name' />
+        <div className='form-group row'>
+            <div className='col'>
+              <input type='text' className='form-control' name='firstname' placeholder='First name' />
+            </div>
+            <div className='col'>
+              <input type='text' className='form-control' name='lastname' placeholder='Last name' />
+            </div>
         </div>
         
         <div className='form-group'>
