@@ -53,7 +53,7 @@ function SignUp() {
         </div>
 
         <div className="text-left form-group">
-          <button type="submit" className="btn btn-primary btn-lg">Sign Up</button>
+          <button type="submit" className="btn buttons btn-lg">Sign Up</button>
         </div>
       </form>
     </div>

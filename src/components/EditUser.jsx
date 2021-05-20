@@ -45,7 +45,7 @@ function EditUser({ userInfoModalIsOpen, setUserInfoModalIsOpen, modalStyling })
         <input className="form-control" type='text' name='lastName' defaultValue={user.lastName} placeholder='Last name' />
       </div>
       <div className='form-group'>
-        <input className="form-control" type='text' name='profilePhoto' defaultValue={user.profilePhoto} placeholder='Photo'/>
+        <input className="toolform-control" type='text' name='profilePhoto' defaultValue={user.profilePhoto} placeholder='Photo'/>   
       </div>
       <div className='form-group'>
         <input className="form-control" type='text' name='dob' defaultValue={user.dob} placeholder='Date of Birth'/>

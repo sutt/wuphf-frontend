@@ -2,15 +2,11 @@ import axios from 'axios'
 import React, { useState, useContext } from "react";
 import { Context } from './Context';
 import EditPost from './EditPost'
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faEdit, faBookmark } from "@fortawesome/free-regular-svg-icons";
-// import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
+import { faHeart, faEdit} from "@fortawesome/free-regular-svg-icons";
 
 const heart = <FontAwesomeIcon icon={faHeart} />;
 const edit = <FontAwesomeIcon icon={faEdit} />;
-const bookmark = <FontAwesomeIcon icon={faBookmark} />;
-// const trash = <FontAwesomeIcon icon={faTrashAlt} />;
 
 function UserPosts({modalStyling}) {
   const {baseURL, posts, setPosts, user, likePost } = useContext(Context)
@@ -19,11 +15,13 @@ function UserPosts({modalStyling}) {
     const updatedPosts = await axios.delete(url)
     setPosts(updatedPosts.data)
   }
+
   function deleteWuphf (e) {
     e.preventDefault()
     const postId = e.target.name
     deletePost(postId)
   }
+
   // Setting up react-Modal hooks and functions:
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [postToBeEdited, setPostToBeEdited] = useState({});
@@ -31,9 +29,9 @@ function UserPosts({modalStyling}) {
     setModalIsOpen(true)
     setPostToBeEdited({id: id, content: content})
   }
-  // Need to sort posts to decending order
+
   const sortedPosts = [...posts].reverse().filter(post => post.author === user.username)
-  // creating <div> tags for each post to be rendered.
+  
   const profileFeed = sortedPosts.map(post => {
     return (
       <div key={post._id} className='card mt-2 border-primary'>
@@ -44,15 +42,11 @@ function UserPosts({modalStyling}) {
           </blockquote>
         </div>
         <nav className='navbar border-top'>
-
           <i className="btn" onClick={() => openEditModal(post._id, post.content)}>{edit}</i>
-          
           <i className="btn" onClick={() => likePost(post, user.username)}>
-            {heart} <spam className='badge badge-light'>{post.likes.length}</spam>
+            {heart} <span className='badge badge-light'>{post.likes.length}</span>
           </i>
-
-          <button onClick={deleteWuphf} name={post._id}>Delete</button>
-          {/* <button onClick={deleteWuphf} name={post._id}>{trash}</button> */}
+          <button className='trash' onClick={deleteWuphf} name={post._id}>🗑️</button>
         </nav>
       </div>
     )

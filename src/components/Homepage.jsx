@@ -5,11 +5,12 @@ import SideBar from './SideBar'
 
 function Homepage() {
   return (
-    <div className='wrapper'>
+    <div className='homePageWrapper'>
       <SideBar />
       <div className='container homeBackground'>
         <div className='row'>
           <div className='col'>
+            <h1 className='newsfeedTitle'>Welcome to Wuphf</h1>
             <CreatePost />
             <Newsfeed /> 
           </div>
