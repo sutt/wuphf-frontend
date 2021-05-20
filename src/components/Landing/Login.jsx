@@ -1,10 +1,16 @@
 import axios from 'axios';
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
+import { useForm } from "react-hook-form";
 import { Redirect } from 'react-router-dom';
 import { Context } from '../Context';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+const eye = <FontAwesomeIcon icon={faEye} />;
+
 function Login() {
   const {baseURL, user, setUser, setLoggedIn, loggedIn} = useContext(Context)
+  const [passwordShown, setPasswordShown] = useState(false);
 
   if (loggedIn) return <Redirect to='/homepage' />
   
@@ -32,6 +38,10 @@ function Login() {
     fetchUserInfo(username, password)
   }
 
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
+
   return (
     <div className='col-md-6'>
       <h3 className='text-center'>Login</h3>
@@ -42,10 +52,11 @@ function Login() {
         </div>
         <div className='form-group'>
           <label>Password</label>
-          <input type='password' className='form-control' name='password' placeholder='Enter your password' />
+          <input type={passwordShown ? "text" : "password"} placeholder='Enter your password' className='form-control' name='password' /> <i onClick={togglePasswordVisiblity}>{eye}</i>
         </div>
         <div className="text-left form-group">
           <button type="submit" className="btn btn-primary btn-lg">Login</button>
+         
         </div>
         <div class="form-group">
           <a href="#" className="ForgetPwd">Forget Password?</a>
