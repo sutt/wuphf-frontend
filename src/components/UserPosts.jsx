@@ -5,12 +5,14 @@ import EditPost from './EditPost'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faEdit, faBookmark } from "@fortawesome/free-regular-svg-icons";
+// import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 
 const heart = <FontAwesomeIcon icon={faHeart} />;
 const edit = <FontAwesomeIcon icon={faEdit} />;
 const bookmark = <FontAwesomeIcon icon={faBookmark} />;
+// const trash = <FontAwesomeIcon icon={faTrashAlt} />;
 
-function UserPosts() {
+function UserPosts({modalStyling}) {
   const {baseURL, posts, setPosts, user, likePost } = useContext(Context)
   async function deletePost (postId) {
     const url = `${baseURL}/posts/${postId}`
@@ -34,7 +36,7 @@ function UserPosts() {
   // creating <div> tags for each post to be rendered.
   const profileFeed = sortedPosts.map(post => {
     return (
-      <div key={post._id} className='card mt-2 border-info'>
+      <div key={post._id} className='card mt-2 border-primary'>
         <h5 className='card-header'>@{post.author}</h5>
         <div className='card-body'>
           <blockquote className='blockquote mb-0'>
@@ -50,6 +52,7 @@ function UserPosts() {
           </i>
 
           <button onClick={deleteWuphf} name={post._id}>Delete</button>
+          {/* <button onClick={deleteWuphf} name={post._id}>{trash}</button> */}
         </nav>
       </div>
     )
@@ -58,7 +61,7 @@ function UserPosts() {
     <div>
       {profileFeed}
       { modalIsOpen && 
-        <EditPost post={postToBeEdited} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}/>
+        <EditPost modalStyling={modalStyling} post={postToBeEdited} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}/>
       }
     </div>
   )

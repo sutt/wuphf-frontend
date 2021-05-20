@@ -3,11 +3,13 @@ import { Context } from "./Context";
 import EditUser from './EditUser'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserEdit } from "@fortawesome/free-solid-svg-icons";
+import { faUserEdit, faBirthdayCake, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 const userEdit = <FontAwesomeIcon icon={faUserEdit} />;
+const cake = <FontAwesomeIcon icon={faBirthdayCake} />;
+const location = <FontAwesomeIcon icon={faMapMarkerAlt} />;
 
-function UserInfo() {
+function UserInfo({modalStyling}) {
   const {user} = useContext(Context)
 
     // Setting up react-Modal hooks and functions:
@@ -18,24 +20,26 @@ function UserInfo() {
     }
 
   return (
-    <div className='card mt-3 mb-3 text-center border-0'>
+    <div className='card mt-3 mb-3 text-center border-0 userBackground'>
       <div className='card-body' style={{paddingBottom: "0"}}>
-          <img className='rounded-circle img-thumbnail border-primary' alt={user.username} src={user.profilePhoto}/>
+        <div className="align-self-end">
+          <img className='rounded-circle img-thumbnail border-primary' onClick={openUserInfoModal} alt={user.username} src={user.profilePhoto}/>
+        </div>
           <h1>{user.firstName} {user.lastName}</h1>
           <p className='m-0'>@{user.username}</p>
       </div>
       <div className='row'>
         <div className='col text-right'>
-          <p>{user.location}</p>
+          <p><i>{location} {user.location}</i></p>
         </div>
         <div className='col text-left'>
-          <p>{user.dob}</p>
+          <p><i>{cake} {user.dob}</i></p>
         </div>
       </div>
       <div>
-        <i className="btn" onClick={openUserInfoModal}> Edit { userEdit } </i>
+  
         { userInfoModalIsOpen &&
-          <EditUser userInfoModalIsOpen={userInfoModalIsOpen} setUserInfoModalIsOpen={setUserInfoModalIsOpen}/>
+          <EditUser modalStyling={modalStyling} userInfoModalIsOpen={userInfoModalIsOpen} setUserInfoModalIsOpen={setUserInfoModalIsOpen}/>
         }
       </div>
     </div>
