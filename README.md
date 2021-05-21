@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# [WUPHF](https://wuphf-2.herokuapp.com)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+> Welcome to Wuphf! It is a social media platform that allows users to wuphf "post" messages on a messaging board. Users have the ability to like and bookmark other user's messages. Each user is also given a profile page, which contains information about the user.
 
-In the project directory, you can run:
+- [Frontend repo](https://github.com/GAP3/wuphf-frontend)
+- [Backend repo](https://github.com/GAP3/wuphf-backend)
 
-### `npm start`
+_WUPHF was created as a project 3 for General Assembly._
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation Instructions
+* First, fork and clone the repo
+* Next, `npm i` to install required packages 
+* Then lastly, open up the files in your code editor
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+Git clone [your https url goes here]
+cd [wuphf-frontend]
+npm i
+npm start
+```
 
-### `npm test`
+## Team Members
+- [Raihan Saleh - Scrum Master](https://github.com/RaihanSaleh)
+- [Justin White](https://github.com/JustinWhite814)
+- [Max Walker](https://github.com/Max-V-Walker)
+- [Evan Burton](https://github.com/evanburton77)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screen Shots
+##### Login Page
 
-### `npm run build`
+##### News Feed Page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##### User Profile Page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Planing
+Checkout the planning directory of this repo to view original wireframes and component hierarchy
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## User stories
+- As a user, I want the ability to create a personal user profile on.
+- As a user, I want the ability to create posts on the platform.
+- As a user, I want the ability to edit and delete a post I have made.
+- As a user, I want the ability to see other's posts on my "New Feeds" and like then.
 
-### `npm run eject`
+## Minimum Viable Product
+- Ability to login and sign out of the platform
+- Ability to sign up with new username and password
+- News Feeds page renders a list of posts from all users
+- Ability to like and un-like posts
+- The ability to add new posts
+- User profile page contains user information (i.e. photo, name, dob, etc.)
+- User profile contains posts that the user has created
+- Ability to delete posts on user profile page
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Strech Goals
+- Authentication user's username & password
+- Ability to comment on existing posts
+- Ability to bookpark posts
+- Ability to search for posts, and other users
+- Ability to follow other users
+- Ability to view other users' profiles
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies Used
+* React
+* JavaScript
+* Node.js
+* Express
+* HTML
+* CSS
+* MongoDB
+* Heroku
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Resources Used
+* https://w3schools.com/
+* https://stackoverflow.com
+* https://www.tutorialspoint.com/css/css_animation_fade_in.htm
+* https://fontawesome.com/
