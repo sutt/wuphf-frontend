@@ -1,4 +1,4 @@
-# [WUPHF](https://wuphf-2.herokuapp.com)
+# [WUPHF!](https://wuphf-2.herokuapp.com)
 
 ## Description
 
