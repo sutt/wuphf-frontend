@@ -29,10 +29,13 @@ npm start
 
 ## Screen Shots
 ##### Login Page
+![screenShotLogin](https://user-images.githubusercontent.com/80619820/119146868-112c5980-ba19-11eb-8bff-b3627ec9201b.png)
 
 ##### News Feed Page
+![screenShotHomepage](https://user-images.githubusercontent.com/80619820/119146886-14274a00-ba19-11eb-90b2-a481bef5a657.png)
 
 ##### User Profile Page
+![screenShotProfile](https://user-images.githubusercontent.com/80619820/119146895-15f10d80-ba19-11eb-834f-6584a88b84f4.png)
 
 ## Project Planing
 Checkout the planning directory of this repo to view original wireframes and component hierarchy
